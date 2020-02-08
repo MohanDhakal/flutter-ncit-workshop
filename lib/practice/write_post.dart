@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'model.dart';
 
 class Write extends StatefulWidget {
+
   Write({Key key, this.title, this.note}) : super(key: key);
 
   final String title;
@@ -32,7 +33,7 @@ class WriteState extends State<Write> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(note.title),
       ),
       body: Builder(
         builder: (BuildContext context) {
@@ -57,8 +58,7 @@ class WriteState extends State<Write> {
                             ),
                             errorMaxLines: 2,
                             hintText: "Please Enter the Title",
-                            hintStyle:
-                                TextStyle(fontSize: 20, color: Colors.black12),
+                            hintStyle: TextStyle(fontSize: 20, color: Colors.black12),
                           ),
                           validator: (value) {
                             if (value.isEmpty) {
@@ -144,6 +144,7 @@ class WriteState extends State<Write> {
     super.initState();
     mytitleController.addListener(_updateValues);
   }
+
 
   _updateValues() {
     setState(() {

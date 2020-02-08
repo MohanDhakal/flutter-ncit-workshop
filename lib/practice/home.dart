@@ -40,6 +40,7 @@ class _HomeState extends State<Home> {
   }
 
   Widget _todolists() {
+
     if (items.isNotEmpty) {
       return ListView.builder(
         itemBuilder: (context, index) {
@@ -85,7 +86,7 @@ class _HomeState extends State<Home> {
     note = items[index];
     showDialog(
         context: context,
-        builder: (BuildContext context) {
+        builder: ( context) {
           return AlertDialog(
             title: Text("Mark " + note.title + " as done"),
             actions: <Widget>[
@@ -105,5 +106,22 @@ class _HomeState extends State<Home> {
             ],
           );
         });
+  }
+
+
+}
+
+
+class Random extends StatelessWidget{
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      height: 200,
+      width: 200,
+      color: Colors.purple,
+      margin: EdgeInsets.all(10),
+    );
   }
 }

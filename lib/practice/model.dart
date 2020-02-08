@@ -1,4 +1,5 @@
 class Note {
+
   String _title, _body;
   int _id;
 
