@@ -14,8 +14,11 @@ In this project we can add title and note using textformfeild widget and add it 
 we can also delete the list item with popup dialog box.
 
 ### some screenshots
-![] (screenshots/1.png)
-![] (screenshots/2.png)
+![](screenshots/1.png)
+![](screenshots/2.png)
+![](screenshots/3.png)
+![](screenshots/4.png)
+
 
 
 few resources to get started:
