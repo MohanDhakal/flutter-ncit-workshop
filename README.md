@@ -1,16 +1,24 @@
-# start_app
+# A Note Taking App
 
-A new Flutter project.
+A Flutter project for adding note.
 
-## Getting Started
+## Some Important Widgets used
+    1. TextFormField
+    2. TextEditingController
+    3. MaterialPageRouter
+    4. MaterialApp/Scafffold
+    5. ListView.Builder
+### How it works:
 
-This project is a starting point for a Flutter application.
+In this project we can add title and note using textformfeild widget and add it to listview and 
+we can also delete the list item with popup dialog box.
 
-A few resources to get you started if this is your first Flutter project:
+### some screenshots
+![] (screenshots/1.png)
+![] (screenshots/2.png)
+
+
+few resources to get started:
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
