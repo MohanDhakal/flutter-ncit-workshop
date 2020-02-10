@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:start_app/practice/write_post.dart';
+import 'package:start_app/noteapp/write_post.dart';
 
 class TasksList extends StatefulWidget {
   @override
@@ -17,7 +17,7 @@ class _TasksListState extends State<TasksList> {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: Write(title:"Your To Do"),
+      home: Write(),
       debugShowCheckedModeBanner: false,
     );
   }

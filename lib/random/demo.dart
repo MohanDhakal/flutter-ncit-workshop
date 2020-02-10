@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:start_app/practice/model.dart';
-import 'package:start_app/practice/write_post.dart';
+import 'package:start_app/noteapp/model.dart';
+import 'package:start_app/noteapp/write_post.dart';
 
 class HomeDemo extends StatefulWidget {
   @override
@@ -26,7 +26,7 @@ class HomeDemoState extends State<HomeDemo> {
         onPressed: () async {
           note = await Navigator.push(context,
               MaterialPageRoute(builder: (context) {
-            return Write(title: "Add ToDO", note: note);
+            return Write();
           }));
           setState(() {
             noteItems.add(note);
