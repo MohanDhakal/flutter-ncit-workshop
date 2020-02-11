@@ -59,13 +59,14 @@ to initialize it just once ,rather than inside build method
 
   @override
   Widget build(BuildContext context) {
+
     //WillPopScope is to customize the backbutton in appbar according to requirement
 
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
         appBar: AppBar(
-            title: Text("Write New"),
+            title: Text("Write Note"),
             leading: IconButton(
                 icon: Icon(Icons.arrow_back),
                 onPressed: () {

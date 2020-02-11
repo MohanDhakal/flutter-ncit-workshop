@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:start_app/noteapp/home.dart';
-import 'package:start_app/noteapp/write_post.dart';
+import 'package:start_app/sh_pref/pref.dart';
+import 'package:start_app/sh_pref/save_note.dart';
 
 /*
  void main() is an entry point of any flutter,without it no flutter app will run
@@ -8,7 +8,8 @@ import 'package:start_app/noteapp/write_post.dart';
  for example,click ctrl and hover with your mouse over the Home() class ,it will take you to that class or widget 
   */
 
-void main() => runApp(MaterialApp(
+void main() => runApp(
+        /*MaterialApp(
       initialRoute: Home.routeName,
       //routes in flutter are simply screen
       //if you ever have done android,routes are similart to activity there.
@@ -19,4 +20,8 @@ void main() => runApp(MaterialApp(
       theme: ThemeData(
         primaryColor: Colors.purple,
       ),
+    )*/
+        MaterialApp(
+      theme: ThemeData(primaryColor: Colors.purple),
+          home:SharedPrefWidget(),
     ));
