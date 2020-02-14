@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:start_app/db/dbhelper.dart';
 import 'package:start_app/noteapp/model.dart';
 import 'package:start_app/noteapp/write_post.dart';
 
@@ -20,8 +21,19 @@ class _HomeState extends State<Home> {
 
   Note note;
 
+  DbHelper dbHelper;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    dbHelper = new DbHelper();
+  }
+
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text("ToDo Lists"),
@@ -39,7 +51,7 @@ class _HomeState extends State<Home> {
             //flutter official docs for more about router
             var result = await Navigator.pushNamed(context, Write.routeName);
             this.note = result as Note;
-            _addItem(this.note);
+            _addItem(result as Note);
           }),
     );
   }
@@ -52,6 +64,12 @@ class _HomeState extends State<Home> {
   * */
 
   Widget _todolists() {
+    dbHelper.getAllNotes().then((value) {
+      setState(() {
+        this.items = value;
+      });
+    });
+
     if (items.isNotEmpty) {
       return ListView.builder(
         itemBuilder: (context, index) {
@@ -70,9 +88,14 @@ class _HomeState extends State<Home> {
               todo: visit the below link to know about router more
               https://flutter.dev/docs/development/ui/navigation
              */
+              Note previousNote = items.elementAt(index) as Note;
+
               var updatedNote = await Navigator.pushNamed(
                   context, Write.routeName,
-                  arguments: items.elementAt(index) as Note);
+                  arguments: previousNote);
+
+              (updatedNote as Note).id = previousNote.id;
+
               _updateNote(updatedNote, index);
             },
             onLongPress: () {
@@ -102,6 +125,7 @@ class _HomeState extends State<Home> {
   /*adds item into the list*/
 
   _addItem(Note note) {
+    dbHelper.insertNote(note);
     if (note.title == "") {
       setState(() {
         note.title = "No title";
@@ -117,7 +141,8 @@ class _HomeState extends State<Home> {
 
   /*remove item from the list*/
 
-  _removeItem(index) {
+  _removeItem(index, note_id) {
+    dbHelper.deleteNote(note_id);
     setState(() {
       items.removeAt(index);
     });
@@ -139,7 +164,7 @@ class _HomeState extends State<Home> {
                   child: Text("cancel")),
               FlatButton(
                 onPressed: () {
-                  _removeItem(index);
+                  _removeItem(index, note.id);
                   Navigator.pop(context);
                 },
                 child: Text(
@@ -155,8 +180,9 @@ class _HomeState extends State<Home> {
   /*to update the note with the particulate index into the list*/
 
   void _updateNote(updatedNote, index) {
+    dbHelper.updateNote(updatedNote);
     setState(() {
-      items[index] = updatedNote as Note;
+      items[index] = note;
     });
   }
 }

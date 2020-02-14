@@ -1,11 +1,10 @@
 class Note {
-
   String _title, _body;
   int _id;
 
-  Note() {}
+  Note();
 
-  Note.name(this._title, this._body, this._id);
+  Note.name(this._id,this._title, this._body,);
 
   int get id => _id;
 
@@ -23,5 +22,12 @@ class Note {
 
   set title(String value) {
     _title = value;
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'title': title,
+      'body': body,
+    };
   }
 }
